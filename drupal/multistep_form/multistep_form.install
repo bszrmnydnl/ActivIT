@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Database table creation for the Multistep form.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function multistep_form_schema() {
+    $schema = array();
+    $schema['multistep_form'] = array(
+        'description' => 'The table for multistep form data.',
+        'fields' => array(
+            'f_id' => array(
+                'description' => 'The primary identifier for a submission.',
+                'type' => 'serial',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ),
+            'name' => array(
+                'description' => 'A field for storing the name of user.',
+                'type' => 'varchar',
+                'length' => 100,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'address' => array(
+                'description' => 'A field for storing the address of the user.',
+                'type' => 'varchar',
+                'length' => 100,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'iban' => array(
+                'description' => 'A field for storing the IBAN of the user.',
+                'type' => 'varchar',
+                'length' => 100,
+                'not null' => TRUE,
+                'default' => '',
+            )
+        ),
+        'indexes' => array(
+            'weather_name' => array( 'name',
+            )
+        ),
+        'primary key' => array(
+            'f_id',
+        ),
+    );
+    return $schema;
+}

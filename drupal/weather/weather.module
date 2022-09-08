@@ -1,0 +1,90 @@
+<?php
+/**
+* @file
+* A Weather app.
+*/
+
+
+/**
+ * Implements hook_permission().
+ */
+function weather_permission() {
+    return array(
+        'administer weather' => array(
+            'title' => t('Administer Weather app.'),
+            'description' => t('Perform administration tasks for Weather app.'),
+        ),
+        'access weather list' => array(
+            'title' => t('Administer Weather app.'),
+            'description' => t('Perform administration tasks for Weather app.'),
+        ),
+    );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function weather_menu(){
+    $items['admin/config/weather'] = array(
+        'title' => 'Weather App Settings',
+        'type' => MENU_NORMAL_ITEM,
+        'page callback' => 'weather_admin_list',
+        'access arguments' => array('access weather list'),
+        'file' => 'includes/weather_admin.inc'
+    );
+    $items['admin/config/weather/list'] = array(
+        'title' => 'Weather App List',
+        'type' => MENU_DEFAULT_LOCAL_TASK
+    );
+    $items['admin/config/weather/form'] = array(
+      'title' => 'Weather App Form',
+      'type' => MENU_LOCAL_TASK,
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('weather_admin_form'),
+      'access arguments' => array('administer weather'),
+      'file' => 'includes/weather_admin.inc'
+    );
+    return $items;
+}
+
+
+/**
+ * Implements hook_block_info().
+ */
+function weather_block_info() {
+
+    $blocks['weather_block'] = array(
+        'info' => t('Weather Info'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function weather_block_view($delta = '') {
+    $city = new City;
+    $block = array();
+    switch ($delta) {
+        case 'weather_block':
+            $block['subject'] = t('Weather Infos');
+
+            $results = db_query("SELECT * FROM {weather}");
+
+            $header = array(t('Location'), t('Temperature'));
+            $rows = array();
+
+            foreach($results as $result){
+                $rows[] = array(
+                    $result->name,
+                    t($city->getTemp($result->latitude, $result->longitude))
+                );
+            }
+
+            $block['content'] = theme('table',  array('header' => $header, 'rows' => $rows));
+
+            break;
+    }
+    return $block;
+}

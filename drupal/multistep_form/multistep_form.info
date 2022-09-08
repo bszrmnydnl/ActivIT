@@ -1,0 +1,6 @@
+name = Multistep form
+description = A multistep form
+package = bszrmnydnl's modules
+core = 7.x
+version = "7.x-1.x-dev"
+configure = admin/config/multistep_form

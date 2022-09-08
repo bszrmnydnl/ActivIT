@@ -1,0 +1,7 @@
+name = Weather
+description = A weather module
+package = bszrmnydnl's modules
+core = 7.x
+version = 7.x-1.0
+configure = admin/config/weather
+files[] = classes\city_class.php

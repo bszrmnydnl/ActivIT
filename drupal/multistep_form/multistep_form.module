@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Multistep form module.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function multistep_form_permission()
+{
+    return array(
+        'access submission list' => array(
+            'title' => t('Access submission list.'),
+            'description' => t('List all submissions of the multistep form.'),
+        ),
+    );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function multistep_form_menu()
+{
+    $items = array();
+    $items['multistep_form/form'] = array(
+        'title' => 'Multistep form',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('multistep_form'),
+        'access callback' => TRUE,
+        'file' => 'includes/multistep_form.inc',
+    );
+    $items['admin/config/multistep_form'] = array(
+        'title' => 'List of submissions',
+        'type' => MENU_NORMAL_ITEM,
+        'page callback' => 'multistep_form_admin_list',
+        'access arguments' => array('access submission list'),
+        'file' => 'includes/multistep_form_admin.inc'
+    );
+    return $items;
+}
