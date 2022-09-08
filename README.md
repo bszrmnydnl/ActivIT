@@ -16,11 +16,11 @@ Drupal Weather Module
 
 Drupal Multistep Form
 ![Alt text](/drupal/multistep_form/screenshots/1.png "Screenshot 1")
-![Alt text](/drupal/multistep_form/screenshots/1.png "Screenshot 2")
-![Alt text](/drupal/multistep_form/screenshots/1.png "Screenshot 3")
-![Alt text](/drupal/multistep_form/screenshots/1.png "Screenshot 4")
-![Alt text](/drupal/multistep_form/screenshots/1.png "Screenshot 5")
-![Alt text](/drupal/multistep_form/screenshots/1.png "Screenshot 6")
+![Alt text](/drupal/multistep_form/screenshots/2.png "Screenshot 2")
+![Alt text](/drupal/multistep_form/screenshots/3.png "Screenshot 3")
+![Alt text](/drupal/multistep_form/screenshots/4.png "Screenshot 4")
+![Alt text](/drupal/multistep_form/screenshots/5.png "Screenshot 5")
+![Alt text](/drupal/multistep_form/screenshots/6.png "Screenshot 6")
 
 
 Weather App
