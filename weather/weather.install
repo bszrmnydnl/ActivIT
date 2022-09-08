@@ -1,0 +1,45 @@
+<?php
+
+function weather_schema() {
+    $schema = array();
+    $schema['weather'] = array(
+        'description' => 'The base table for nodes.',
+        'fields' => array(
+            'w_id' => array(
+                'description' => 'The primary identifier for a location.',
+                'type' => 'serial',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ),
+            'name' => array(
+                'description' => 'A field for storing the name of the location.',
+                'type' => 'varchar',
+                'length' => 32,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'longitude' => array(
+                'description' => 'A field for storing the longitude of the location.',
+                'type' => 'varchar',
+                'length' => 32,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'latitude' => array(
+                'description' => 'A field for storing the latitude of the location.',
+                'type' => 'varchar',
+                'length' => 32,
+                'not null' => TRUE,
+                'default' => '',
+            )
+        ),
+        'indexes' => array(
+            'weather_name' => array( 'name',
+            )
+        ),
+        'primary key' => array(
+            'w_id',
+        ),
+    );
+    return $schema;
+}
