@@ -1,10 +1,10 @@
 # ActivIT
 
-weather - contains the weather drupal module
-multistep_form - contains the drupal multistep form module
-weather_app - contains an application with registration, login and the ability to record towns for weather monitoring.
-multistep_form - contains the Multistep form application.
-databases.sql - an exported MySQL database which containes everything needed to try the applications out.
+weather - contains the weather drupal module <br>
+multistep_form - contains the drupal multistep form module <br>
+weather_app - contains an application with registration, login and the ability to record towns for weather monitoring. <br>
+multistep_form - contains the Multistep form application. <br>
+databases.sql - an exported MySQL database which containes everything needed to try the applications out. <br>
 
 
 Drupal Weather Module
